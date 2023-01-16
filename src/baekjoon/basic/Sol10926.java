@@ -2,10 +2,12 @@ package baekjoon.basic;
 
 import java.util.Scanner;
 
-public class Solv18108 {
+public class Sol10926 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int byear = sc.nextInt();
-		System.out.println(byear-543);
+		
+		String inid = sc.nextLine();
+		
+		System.out.println(inid + "??!");
 	}
 }

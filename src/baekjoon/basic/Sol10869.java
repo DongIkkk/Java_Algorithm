@@ -2,7 +2,7 @@ package baekjoon.basic;
 
 import java.util.Scanner;
 
-public class Solv10869 {
+public class Sol10869 {
 	public static void main(String[] args) {
 		Scanner sc1 = new Scanner(System.in);
 		
