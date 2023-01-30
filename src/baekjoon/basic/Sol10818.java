@@ -19,6 +19,5 @@ public class Sol10818 {
 			if(num>max) max=num;
 		}
 		System.out.println(min + " " + max);
-		
 	}
 }
