@@ -1,3 +1,5 @@
+package D1_D2;
+
 import java.util.Scanner;
 
 public class Sol2007 {

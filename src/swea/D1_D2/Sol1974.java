@@ -1,3 +1,5 @@
+package D1_D2;
+
 import java.util.Scanner;
 public class Sol1974 {
         public static void main(String args[]) {
