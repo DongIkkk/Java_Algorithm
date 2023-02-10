@@ -1,4 +1,4 @@
-package baekjoon.basic;
+package basic;
 
 public class Sol2557 {
 	public static void main(String[] args) {
