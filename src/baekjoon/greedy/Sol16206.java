@@ -46,7 +46,7 @@ public class Sol16206 {
 
         outer:
         for(int c:cake){
-            while(c>10 && M>0){
+            while(c>10 && M>0 && c%10!=0){
                 c -= 10;
                 M--;
                 result++;
