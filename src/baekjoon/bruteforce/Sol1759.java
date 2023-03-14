@@ -13,7 +13,7 @@ public class Sol1759 {
         for (int i = 0; i < C; i++) {
             carr[i] = sc.next().charAt(0);
         }
-
+        
         Arrays.sort(carr);
         System.out.println(Arrays.toString(carr));
         StringBuilder sb = new StringBuilder();
