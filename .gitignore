@@ -15,6 +15,7 @@ local.properties
 .recommenders
 .idea
 *.iml
+.DS_Store
 # External tool builders
 .externalToolBuilders/
 
