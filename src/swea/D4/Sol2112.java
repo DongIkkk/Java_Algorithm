@@ -9,6 +9,7 @@ public class Sol2112 {
     static int d,w,k;
     static int[][] film;
     static int result;
+    static int[] all0, all1;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,6 +21,13 @@ public class Sol2112 {
             w = Integer.parseInt(st.nextToken()); // y
             k = Integer.parseInt(st.nextToken()); //합격기준
             film = new int[d][w];
+
+            all0 = new int[w];
+            all1 = new int[w];
+            for (int i = 0; i < w; i++) {
+                all1[i]=1;
+            }
+
             for (int i = 0; i < d; i++) {
                 st = new StringTokenizer(br.readLine());
                 for (int j = 0; j < w; j++) {
@@ -31,57 +39,29 @@ public class Sol2112 {
             find(0,0);
             System.out.printf("#%d %d\n", tc, result);
 
-
         }
     }
 
     public static void find(int count, int idx){
         if(isPass()) {
-            if(result>count){
-                result = count;
-            }
+            if(result>count) result = count;
             return;
         }
-
-        if(count == d ) return;
-        if(idx == d) return;
-
-
+        if(count>=result || count == d || idx==d) return;
 
         int[] temp;
         find(count, idx+1);
 
-        temp = yak0(idx);
+        temp = film[idx];
+        film[idx] = all0;
         find(count+1, idx+1);
-        cancel(idx, temp);
+        film[idx] = temp;
 
-        temp = yak1(idx);
+        temp = film[idx];
+        film[idx] = all1;
         find(count+1, idx+1);
-        cancel(idx, temp);
+        film[idx] = temp;
 
-
-    }
-
-    public static void cancel(int h, int[] temp){
-        for (int i = 0; i < w; i++) {
-            film[h][i] = temp[i];
-        }
-    }
-    public static int[] yak0(int h){
-        int[] temp = new int[w];
-        for (int i = 0; i < w; i++) {
-            temp[i] = film[h][i];
-            film[h][i] = 0;
-        }
-        return temp;
-    }
-    public static int[] yak1(int h){
-        int[] temp = new int[w];
-        for (int i = 0; i < w; i++) {
-            temp[i] = film[h][i];
-            film[h][i] = 1;
-        }
-        return temp;
     }
 
     public static boolean isPass(){
