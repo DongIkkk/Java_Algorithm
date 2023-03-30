@@ -3,58 +3,54 @@ package D4;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.StringTokenizer;
 
-public class Sol3124K {
+// 창용 마을 무리의 개수
+public class Sol7465 {
     static int[] p;
-    //Kruskal's Algorithm
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int T = Integer.parseInt(st.nextToken());
         for (int tc = 1; tc <= T ; tc++) {
             st = new StringTokenizer(br.readLine());
-            int v = Integer.parseInt(st.nextToken());
-            int e = Integer.parseInt(st.nextToken());
+            int N = Integer.parseInt(st.nextToken());
+            int M = Integer.parseInt(st.nextToken());
 
-            p = new int[v+1];
-            int[][] edges = new int[e][3];
+            p = new int[N+1];
+            int[][] edges = new int[M][2];
 
-            for (int i = 0; i < e; i++) {
+            for (int i = 0; i < M; i++) {
                 st = new StringTokenizer(br.readLine());
                 edges[i][0] = Integer.parseInt(st.nextToken());
                 edges[i][1] = Integer.parseInt(st.nextToken());
-                edges[i][2] = Integer.parseInt(st.nextToken());
             }
 
-            Arrays.sort(edges, new Comparator<int[]>() {
-                @Override
-                public int compare(int[] o1, int[] o2) {
-                    return o1[2] - o2[2];
-                }
-            });
-
-            for(int i=1; i<=v; i++){
+            for(int i=1; i<=N; i++){
                 p[i] = i;
             }
 
-            long result = 0;
             int pick = 0;
-            for (int i = 0; i < e; i++) {
+            for (int i = 0; i < M; i++) {
                 int start = edges[i][0];
                 int end = edges[i][1];
 
                 if(findset(start) != findset(end)){
                     union(start,end);
-                    result += edges[i][2];
                     pick++;
                 }
 
-                if(pick == v-1) break;
+                if(pick == N-1) break;
             }
-            System.out.printf("#%d %d\n", tc, result);
+            Set<Integer> set = new HashSet<>();
+            for (int i = 1; i <= N; i++) {
+                set.add(findset(i));
+            }
+            System.out.printf("#%d %d\n", tc, set.size());
+
 
         }
     }
