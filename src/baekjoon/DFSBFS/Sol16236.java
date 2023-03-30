@@ -55,6 +55,9 @@ public class Sol16236 {
 
             distanceCal(myx, myy);
             if(targetFish.size() == 1){
+                // 지렷다 해종이형
+                if(distance[targetFish.get(0)[0]][targetFish.get(0)[1]]==0) break;
+                // !! 1마리일때 못가는경우 체크하지않음!!
                 movex = targetFish.get(0)[0];
                 movey = targetFish.get(0)[1];
                 eat();
