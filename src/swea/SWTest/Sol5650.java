@@ -92,7 +92,7 @@ public class Sol5650 {
                         findwh(map[x][i], x, i);
                         return gogo(count, whx, why, status, find1, find2);
                     } else if(map[x][i]>0){
-                        return gogo(count+1, x, i, 1, 1, 2);
+                        return count*2 + 1;
                     }
                 }
             case 1:
@@ -111,7 +111,7 @@ public class Sol5650 {
                         findwh(map[x][i], x, i);
                         return gogo(count, whx, why, status, find1, find2);
                     } else if(map[x][i]>0){
-                        return gogo(count+1, x, i, 0, 3, 4);
+                        return count*2 + 1;
                     }
                 }
             case 2:
@@ -128,7 +128,7 @@ public class Sol5650 {
                         findwh(map[i][y], i, y);
                         return gogo(count, whx, why, status, find1, find2);
                     }else if(map[i][y]>0){
-                        return gogo(count+1, i, y, 3, 1, 4);
+                        return count*2 + 1;
                     }
                 }
             case 3:
@@ -145,7 +145,7 @@ public class Sol5650 {
                         findwh(map[i][y], i, y);
                         return gogo(count, whx, why, status, find1, find2);
                     }else if(map[i][y]>0){
-                        return gogo(count+1, i, y, 2, 2, 3);
+                        return count*2 + 1;
                     }
                 }
         }
