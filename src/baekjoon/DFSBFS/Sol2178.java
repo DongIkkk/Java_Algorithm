@@ -5,15 +5,12 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class Sol2178 {
-    static int n, m;
-    static int[][] map;
+    static int n, m, count;
+    static int[][] map, dis;
     static boolean[][] visited;
-    static int[][] dis;
-    static int count;
     static int[] dx = {-1, 0, 1, 0};
     static int[] dy = {0, 1, 0, -1};
     static Queue<int[]> q = new LinkedList<>();
-
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -21,16 +18,14 @@ public class Sol2178 {
         m = sc.nextInt();
 
         map = new int[n][m];
-        visited = new boolean[n][m];
         dis = new int[n][m];
+        visited = new boolean[n][m];
 
         for (int i = 0; i < n; i++) {
             String s = sc.next();
             char[] carr = s.toCharArray();
-
             for (int j = 0; j < m; j++) {
                 map[i][j] = carr[j] - '0';
-
             }
         }
 
@@ -67,6 +62,5 @@ public class Sol2178 {
                 }
             }
         }
-
     }
 }
