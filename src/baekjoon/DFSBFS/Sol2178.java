@@ -44,11 +44,6 @@ public class Sol2178 {
         while(q.size()!=0){
             int[] temp = q.poll();
 
-            if(temp[0] == n && temp[1] == m){
-                count++;
-                break;
-            }
-
             for (int i = 0; i < 4; i++) {
                 int nextx = temp[0] + dx[i];
                 int nexty = temp[1] + dy[i];
