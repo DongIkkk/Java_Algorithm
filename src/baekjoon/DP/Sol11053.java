@@ -17,16 +17,15 @@ public class Sol11053 {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
-        dp[0] = 1;
         int result = 0;
 
-        for (int i = 1; i < N; i++) {
-            for (int j = i-1; j >=0 ; j--) {
+        for (int i = 0; i < N; i++) {
+            dp[i] = 1;
+            for (int j = 0; j < i ; j++) {
                 if(arr[j] < arr[i]) {
-                    dp[i] = Math.max(dp[j], dp[i]);
+                    dp[i] = Math.max(dp[j]+1, dp[i]);
                 }
             }
-            dp[i]++;
             result = Math.max(dp[i], result);
         }
 
