@@ -8,7 +8,7 @@ public class Sol11727 {
 
         int n = sc.nextInt();
 
-        int[] dp = new int[n+1];
+        int[] dp = new int[1001];
 
         dp[0] = 0;
         dp[1] = 1;
