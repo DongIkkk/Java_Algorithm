@@ -3,8 +3,6 @@ package Lv3;
 import java.util.*;
 
 public class 아이템_줍기 {
-    static int[] dx = {-1, 0, 1, 0, -1, 0};
-    static int[] dy = {0, 1, 0, -1, 0, 1};
     static int[][] map;
     static int startx, starty, goalx, goaly, total, tempCount;
 
@@ -15,34 +13,12 @@ public class 아이템_줍기 {
         goaly = itemY;
         map = new int[52][52];
 
-        // 네모는 1
+        // 네모 그리기
         for (int i = 0; i < rectangle.length; i++) {
             int[] temp = rectangle[i];
             for (int j = temp[0]; j < temp[2]; j++) {
                 for (int k = temp[1]; k < temp[3]; k++) {
                     map[j][k] = 1;
-                }
-            }
-        }
-
-        boolean[][] visited = new boolean[52][52];
-        Queue<int[]> q = new LinkedList<>();
-        q.add(new int[] {0,0});
-        visited[0][0] = true;
-
-        // 외곽은 2
-        while(!q.isEmpty()) {
-            int[] now = q.poll();
-            map[now[0]][now[1]] = 2;
-
-            for (int i = 0; i < 4; i++) {
-                int nextx = now[0] + dx[i];
-                int nexty = now[1] + dy[i];
-                if(nextx <= 51 && nexty <= 51 && nextx >= 0 && nexty >= 0) {
-                    if(map[nextx][nexty] == 0 && !visited[nextx][nexty]) {
-                        visited[nextx][nexty] = true;
-                        q.add(new int[] {nextx, nexty});
-                    }
                 }
             }
         }
