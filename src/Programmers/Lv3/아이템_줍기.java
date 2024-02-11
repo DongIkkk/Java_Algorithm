@@ -15,6 +15,7 @@ public class 아이템_줍기 {
         goaly = itemY;
         map = new int[52][52];
 
+        // 네모는 1
         for (int i = 0; i < rectangle.length; i++) {
             int[] temp = rectangle[i];
             for (int j = temp[0]; j < temp[2]; j++) {
@@ -29,6 +30,7 @@ public class 아이템_줍기 {
         q.add(new int[] {0,0});
         visited[0][0] = true;
 
+        // 외곽은 2
         while(!q.isEmpty()) {
             int[] now = q.poll();
             map[now[0]][now[1]] = 2;
@@ -45,20 +47,19 @@ public class 아이템_줍기 {
             }
         }
 
-        for (int i = 0; i < 4; i++) {
-            if(map[characterX][characterY] != map[characterX-1][characterY]) {
-                // 위로갈 수 있다
-                gogo(characterX, characterY+1, 0, 1);
-            } else if(map[characterX][characterY] != map[characterX][characterY-1]) {
-                // 오른쪽으로 갈 수 있다
-                gogo(characterX+1, characterY, 1, 1);
-            } else if(map[characterX][characterY-1] != map[characterX-1][characterY-1]){
-                // 아래로 갈 수 있다
-                gogo(characterX, characterY-1, 2, 1);
-            } else if(map[characterX-1][characterY] != map[characterX-1][characterY-1]){
-                // 왼쪽으로 갈 수 있다.
-                gogo(characterX-1, characterY, 3, 1);
-            }
+        // 시작 좌표부터 어디로갈까
+        if(map[characterX][characterY] != map[characterX-1][characterY]) {
+            // 위로갈 수 있다
+            gogo(characterX, characterY+1, 0, 1);
+        } else if(map[characterX][characterY] != map[characterX][characterY-1]) {
+            // 오른쪽으로 갈 수 있다
+            gogo(characterX+1, characterY, 1, 1);
+        } else if(map[characterX][characterY-1] != map[characterX-1][characterY-1]){
+            // 아래로 갈 수 있다
+            gogo(characterX, characterY-1, 2, 1);
+        } else if(map[characterX-1][characterY] != map[characterX-1][characterY-1]){
+            // 왼쪽으로 갈 수 있다.
+            gogo(characterX-1, characterY, 3, 1);
         }
 
         return Math.min(tempCount, total-tempCount);
