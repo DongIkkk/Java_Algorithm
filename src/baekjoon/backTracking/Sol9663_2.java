@@ -27,16 +27,16 @@ public class Sol9663_2 {
         }
 
         for (int i = 0; i < N; i++) {
-            if (!col[i] && !left[depth + i] && !right[N - 1 + depth - i]) {
+            if (!col[i] && !right[depth + i] && !left[N - 1 + depth - i]) {
                 col[i] = true;
-                left[depth + i] = true;
-                right[N - 1 + depth - i] = true;
+                right[depth + i] = true;
+                left[N - 1 + depth - i] = true;
 
                 Queen(depth + 1);
 
                 col[i] = false;
-                left[depth + i] = false;
-                right[N - 1 + depth - i] = false;
+                right[depth + i] = false;
+                left[N - 1 + depth - i] = false;
             }
         }
     }
